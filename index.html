@@ -102,12 +102,12 @@
       font-weight: 300;
     }
 
-    .div-collapse-content>ul {
+    /* .div-collapse-content>ul {
       width: 100%;
-    }
+    } */
 
     .div-collapse-content>ul>li {
-      margin: 10px;
+      margin-bottom: 10px;
     }
 
     .div-collapse-trigger {
@@ -193,9 +193,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.5s;
+      cursor: pointer;
     }
 
-    .div-grid-image-gallery-wrapper>div:active {
+    /* .div-grid-image-gallery-wrapper>div:active {
       width: 100vw;
       height: 100vh;
       position: fixed;
@@ -208,7 +210,7 @@
 
     .div-grid-image-gallery-wrapper>div:active img {
       height: auto;
-    }
+    } */
 
 
     .div-grid-image-gallery-wrapper img {
@@ -224,6 +226,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .image-gallery-item-full {
+      grid-column: span 2;
+    }
+
+    .p-internal-collapse-content {
+      margin-right: 20px;
     }
   </style>
   <div class="container">
@@ -339,7 +349,7 @@
             <span>ظرفیت دوره</span>
           </div>
           <div class="div-collapse-content" id="collapseContent6">
-            <p>۷ نفر به صورت حضوری</p>
+            <p class="p-internal-collapse-content">۷ نفر به صورت حضوری</p>
           </div>
         </div>
 
@@ -367,25 +377,25 @@
           </div>
           <div class="div-collapse-content" id="collapseContent8">
             <div class="div-grid-image-gallery-wrapper">
-              <div style="grid-column: span 2;">
+              <div class="image-gallery-item-full" onclick="openModal(this)">
                 <img src="./assets/images/artwork/7.jpg" alt="art" />
               </div>
-              <div style="grid-column: span 2;">
+              <div class="image-gallery-item-full" onclick="openModal(this)">
                 <img src="./assets/images/artwork/2.jpg" alt="art" />
               </div>
-              <div style="grid-column: span 2;">
+              <div onclick="openModal(this)">
                 <img src="./assets/images/artwork/1.jpg" alt="art" />
               </div>
-              <div>
+              <div onclick="openModal(this)">
                 <img src="./assets/images/artwork/3.jpg" alt="art" />
               </div>
-              <div>
+              <div onclick="openModal(this)">
                 <img src="./assets/images/artwork/4.jpg" alt="art" />
               </div>
-              <div>
+              <div onclick="openModal(this)">
                 <img src="./assets/images/artwork/5.jpg" alt="art" />
               </div>
-              <div>
+              <div onclick="openModal(this)">
                 <img src="./assets/images/artwork/6.jpg" alt="art" />
               </div>
 
@@ -416,6 +426,39 @@
   </div>
 
   <script>
+
+
+    function openModal(target) {
+
+      if (target.isTrusted) target = this;
+
+      target.style.position = 'fixed'
+      target.style.width = '100vw'
+      target.style.height = '100svh'
+      target.style.backdropFilter = 'blur(10px)'
+      target.style.zIndex = '1'
+
+      const img = target.children[0]
+
+      img.style.maxWidth = '800px'
+      img.style.height = 'auto'
+
+
+      target.onclick = closeModal.bind(target)
+    }
+
+    function closeModal() {
+
+      this.removeAttribute('style')
+
+      const img = this.children[0]
+
+      img.style.maxWidth = ''
+      img.style.height = ''
+
+      this.onclick = openModal.bind(this)
+
+    }
 
 
     function scrollPageTo(target) {
