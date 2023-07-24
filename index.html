@@ -226,7 +226,7 @@
   <div class="container">
     <header class="section-intro">
       <img src="./assets/images/sama.svg" />
-      <button class="button-more-and-signup">
+      <button class="button-more-and-signup" onclick="scrollPageTo('.div-main-description-wrapper')">
         <span>اطلاعات بیشتر و ثبت‌نام</span>
         <img src="./assets/icons/arrow-down-orange.svg" />
       </button>
@@ -415,6 +415,11 @@
   <script>
 
 
+    function scrollPageTo(target) {
+      const el = document.querySelector(target);
+
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
 
 
 
