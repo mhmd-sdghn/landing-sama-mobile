@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <link href="./normalize.css" rel="stylesheet" />
+  <link href="./fontiran.css" rel="stylesheet" />
+</head>
+
+<body lang="fa" dir="rtl">
+  <style>
+    body {
+      background-color: #2f222b;
+      font-family: Yekan Bakh FaNum;
+    }
+
+    .container {
+      max-width: 328px;
+      margin: auto;
+    }
+
+    .section-intro {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button-more-and-signup {
+      position: absolute;
+      bottom: 10px;
+      background: none;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .button-more-and-signup>span {
+      font-size: 16px;
+      font-weight: 300;
+      color: #fff;
+    }
+
+    .button-more-and-signup>img {
+      animation: blink 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes blink {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .div-main-description-wrapper {
+      background-color: #3f2a38;
+      padding: 8px;
+      border-radius: 5px;
+      margin: 72px auto;
+    }
+
+    .p-main-description {
+      font-size: 16px;
+      font-weight: 400;
+      color: #a8a8a8;
+      text-align: justify;
+      margin: 0;
+      line-height: normal;
+    }
+
+    .p-main-description>mark {
+      color: #e35700;
+      background: none;
+    }
+
+    .div-collapse-container {
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .div-collapse-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+      color: #fff;
+      font-weight: 300;
+    }
+
+    .div-collapse-content>ul {
+      width: 100%;
+    }
+
+    .div-collapse-content>ul>li {
+      margin: 10px;
+    }
+
+    .div-collapse-trigger {
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 0.5px solid #8e8e8d;
+      color: #e35700;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: normal;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .div-collapse-trigger>img:first-child {
+      transform: rotate(90deg);
+      transition: transform 0.3s ease-in;
+    }
+
+    .div-collapse-trigger.expanded>img:first-child {
+      transform: rotate(0deg);
+    }
+
+    .div-collapse-content.expanded {
+      max-height: 200px;
+      /* Adjust the height as needed */
+    }
+
+    .div-timing {
+      border-radius: 5px;
+      background: #3f2a38;
+      padding: 8px;
+      margin-top: 24px;
+    }
+
+    .div-timing>p {
+      color: #e35700;
+      font-size: 21px;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+    }
+
+    .div-price {
+      border-radius: 5px;
+      background: #e35700;
+      padding: 3px;
+      margin-top: 16px;
+    }
+
+    .div-price>p {
+      font-size: 24px;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+    }
+
+    .a-signup {
+      border-radius: 2.872px;
+      background: #299d00;
+      padding: 5px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 400;
+      margin-top: 16px;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+    }
+
+
+    .div-grid-image-gallery-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .div-grid-image-gallery-wrapper>div {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .div-grid-image-gallery-wrapper>div:active {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      backdrop-filter: blur(10px);
+    }
+
+    .div-grid-image-gallery-wrapper>div:active img {
+      height: auto;
+    }
+
+
+    .div-grid-image-gallery-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    .footer-page {
+      padding-top: 100px;
+      padding-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <div class="container">
+    <header class="section-intro">
+      <img src="./assets/images/sama.svg" />
+      <button class="button-more-and-signup">
+        <span>اطلاعات بیشتر و ثبت‌نام</span>
+        <img src="./assets/icons/arrow-down-orange.svg" />
+      </button>
+    </header>
+
+
+    <main>
+      <section>
+        <div class="div-main-description-wrapper">
+          <p class="p-main-description">
+            <mark>تبلیغات مدرن</mark> نیازمند خلاقیت و ساختارشکنی است.
+            <mark>تصویرسازی</mark> این امکان را دارد که ایده‌ها را به
+            <mark>متفاوت‌ترین</mark> شکل ممکن به تصویر بکشد در حالیکه عکس‌ها این
+            امکان را ندارند.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="div-collapse-container">
+          <div class="div-collapse-trigger" onclick="toggleCollapse('collapseContent1')">
+            <img src="./assets/icons/arrow-down-orange.svg" />
+            <img src="./assets/images/divider.svg" />
+            <span>این دوره برای چه کسانی مناسبه</span>
+          </div>
+          <div class="div-collapse-content" id="collapseContent1">
+            <ul>
+              <li>طراحان گرافیک، وب‌سایت و سوشال مدیا.</li>
+              <li>دانشجویان گرافیک و تصویر‌سازی</li>
+              <li>سازندگان انیمیشن و موشن گرافیک</li>
+              <li>افرادی که با دیزای سر و کار دارند.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="div-collapse-container">
+          <div class="div-collapse-trigger" onclick="toggleCollapse('collapseContent2')">
+            <img src="./assets/icons/arrow-down-orange.svg" />
+            <img src="./assets/images/divider.svg" />
+            <span>سر فصل‌های دوره</span>
+          </div>
+          <div class="div-collapse-content" id="collapseContent2">
+            <ul>
+              <li>آشنایی با نقاشی دیجیتال – Digital Painting</li>
+              <li>اسکچ‌زدن</li>
+              <li>ابزارشناسی</li>
+              <li>فضاسازی</li>
+              <li>ترکیب بندی</li>
+              <li>رنگ‌شناسی و آشنایی با رنگ‌گذاری ذهنی</li>
+              <li>کار با قلم دیجیتالی</li>
+              <li>شناخت نور و سایه</li>
+              <li>اصول و تکنیک‌های تصویرسازی تبلیغاتی</li>
+              <li>ایده پردازی و تکنیک‌های ایده یابی</li>
+              <li>اصول بریف نویسی سفارش</li>
+              <li>تکنیک‌های اجرا در فتوشاپ و ایلاستریتور</li>
+              <li>پرزنت و ارائه طرح به سفارش دهنده</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="div-collapse-container">
+          <div class="div-collapse-trigger" onclick="toggleCollapse('collapseContent3')">
+            <img src="./assets/icons/arrow-down-orange.svg" />
+            <img src="./assets/images/divider.svg" />
+            <span>پیش ‌نیاز‌های دوره</span>
+          </div>
+          <div class="div-collapse-content" id="collapseContent3">
+            <ul>
+              <li>آشنایی اولیه با نرم فتوشاپ و ایلاستریتور</li>
+              <li>توانایی طراحی دستی</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="div-collapse-container">
+          <div class="div-collapse-trigger" onclick="toggleCollapse('collapseContent4')">
+            <img src="./assets/icons/arrow-down-orange.svg" />
+            <img src="./assets/images/divider.svg" />
+            <span>مدل آموزشی</span>
+          </div>
+          <div class="div-collapse-content" id="collapseContent4">
+            <ul>
+              <li>به صورت عملی همراه با انجام پروژه</li>
+              <li>دو ماه پشتیبانی (Mentorship) پس از اتمام دوره</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="div-collapse-container">
+          <div class="div-collapse-trigger" onclick="toggleCollapse('collapseContent5')">
+            <img src="./assets/icons/arrow-down-orange.svg" />
+            <img src="./assets/images/divider.svg" />
+            <span>ملزومات</span>
+          </div>
+          <div class="div-collapse-content" id="collapseContent5">
+            <ul>
+              <li>لپتاب</li>
+              <li>قلم نوری</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="div-collapse-container">
+          <div class="div-collapse-trigger" onclick="toggleCollapse('collapseContent6')">
+            <img src="./assets/icons/arrow-down-orange.svg" />
+            <img src="./assets/images/divider.svg" />
+            <span>ظرفیت دوره</span>
+          </div>
+          <div class="div-collapse-content" id="collapseContent6">
+            <p>۷ نفر به صورت</p>
+          </div>
+        </div>
+
+        <div class="div-collapse-container">
+          <div class="div-collapse-trigger" onclick="toggleCollapse('collapseContent7')">
+            <img src="./assets/icons/arrow-down-orange.svg" />
+            <img src="./assets/images/divider.svg" />
+            <span>زیر نظر سما فخلعی</span>
+          </div>
+          <div class="div-collapse-content" id="collapseContent7">
+            <ul>
+              <li>تصویرساز</li>
+              <li>کوفایندر استدیو لولو</li>
+              <li>مدرس دانشگاه</li>
+              <li>عضو انجمن هنر‌های تجسمی</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="div-collapse-container">
+          <div class="div-collapse-trigger" onclick="toggleCollapse('collapseContent8')">
+            <img src="./assets/icons/arrow-down-orange.svg" />
+            <img src="./assets/images/divider.svg" />
+            <span>بررسی آثار مدرس</span>
+          </div>
+          <div class="div-collapse-content" id="collapseContent8">
+            <div class="div-grid-image-gallery-wrapper">
+              <div style="grid-column: span 2;">
+                <img src="./assets/images/artwork/7.jpg" alt="art" />
+              </div>
+              <div style="grid-column: span 2;">
+                <img src="./assets/images/artwork/2.jpg" alt="art" />
+              </div>
+              <div style="grid-column: span 2;">
+                <img src="./assets/images/artwork/1.jpg" alt="art" />
+              </div>
+              <div>
+                <img src="./assets/images/artwork/3.jpg" alt="art" />
+              </div>
+              <div>
+                <img src="./assets/images/artwork/4.jpg" alt="art" />
+              </div>
+              <div>
+                <img src="./assets/images/artwork/5.jpg" alt="art" />
+              </div>
+              <div>
+                <img src="./assets/images/artwork/6.jpg" alt="art" />
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="div-timing">
+          <p>هفته‌ای یک جلسه،پنجشنبه‌ها صبح</p>
+        </div>
+        <div class="div-price">
+          <p>هزینه دوره: تومان ۳٫۵۰۰٫۰۰۰</p>
+        </div>
+
+        <a class="a-signup" target="_blank" href="https://sleepymo.ir.page">
+          ثبت‌نام
+        </a>
+  </div>
+  </section>
+  </main>
+
+  <footer class="footer-page">
+    <img src="./assets/images/footer.svg" />
+  </footer>
+
+  </div>
+
+  <script>
+
+
+
+
+
+
+    function toggleCollapse(collapseId) {
+      const content = document.getElementById(collapseId);
+      const trriger = content.previousElementSibling;
+
+      if (content.classList.contains("expanded")) {
+        content.classList.remove("expanded");
+        trriger.classList.remove("expanded");
+        content.style.maxHeight = "0px";
+      } else {
+        content.classList.add("expanded");
+        trriger.classList.add("expanded");
+
+        content.style.maxHeight = content.scrollHeight + "px";
+
+        content.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  </script>
+</body>
+
+</html>
